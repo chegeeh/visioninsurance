@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <title>Vision Insurance Services</title>
+  
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 1200px;
+    }
+
+    .form-container {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .form-control {
+      border-radius: 5px;
+    }
+
+    .btn-primary {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    /* Adjust the width of the form fields */
+    @media (max-width: 576px) {
+      .form-control {
+        width: 100%;
+      }
+    }
+
+    /* Make the image fit within its side (column) */
+    .fit-image {
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Center the image both horizontally and vertically */
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    /* Sticky Footer */
+    /* Sticky Footer */
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #f8f9fa; /* Change background color to transparent */
+      padding: 10px 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+  </style>
+  
+  
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/">Vision Insurance Services</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto"> <!-- Using ml-auto to align items to the right -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="sms:+254711446293">Text</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="tel:+254711446293">Call</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://wa.me/254711446293">WhatsApp</a>
+          </li>
+        </ul>            
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body image-container">
+            <!-- Replace "your_image_url.jpg" with your actual image URL -->
+            <img src="private.webp" alt="Insurance Image" class="img-fluid fit-image">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card form-container mt-3 mt-md-0">
+          <div class="card-body">
+            <h2 class="card-title">Private Car Insurance</h2>
+            <form action="checkout.html" method="POST">
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="email">Name</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="phoneNumber">Phone Number (Compulsory)</label>
+                  <input type="tel" class="form-control" id="phoneNumber" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email">Email (Optional)</label>
+                  <input type="email" class="form-control" id="email">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="vehicleValue">Vehicle Value (KShs.)</label>
+                  <input type="number" class="form-control" id="vehicleValue" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="vehicleType">Vehicle Type</label>
+                  <select class="form-control" id="vehicleType" required>
+                    <option value="" disabled selected>Select Vehicle Type</option>
+                    <option value="saloon">Saloon</option>
+                    <option value="pickupDoubleCabin">Pickup (Double Cabin)</option>
+                    <option value="hatchback">Hatchback</option>
+                    <option value="stationwagon">Station Wagon</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="registration">Registration</label>
+                  <input type="text" class="form-control" id="registration" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="coverType">Cover Type</label>
+                  <select class="form-control" id="coverType" required>
+                    <option value="" disabled selected>Select Cover Type</option>
+                    <option value="comprehensive">Comprehensive</option>
+                    <option value="thirdparty">Third Party</option>
+                    <option value="fire-theft">Third Party Fire & Theft </T></option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="riskClassType">Risk Class Type</label>
+                <select class="form-control" id="riskClassType" required>
+                  <option value="" disabled selected>Select Risk Class Type</option>
+                  <option value="owngoods">Contingency Liability</option>
+                  <option value="other">Motor Private</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br>
+<br>
+  <!-- Sticky Footer -->
+  <!-- Sticky Footer -->
+  <div class="footer">
+    <p>2023 © VisionInsurance.co.ke ™</p>
+  </div>
+  
+  <!-- Include Bootstrap JS (Optional, for additional features like form validation) -->
+  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

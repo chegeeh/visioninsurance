@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vision Insurance Services</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to handle the button click and open the PDF in a new window
+            function openPdfFile() {
+                // Replace 'file_path/file_name.pdf' with the actual PDF file path and name
+                const pdfFilePath = '/claims.pdf';
+
+                // Open the PDF file in a new window
+                window.open(pdfFilePath, '_blank');
+            }
+
+            // Attach the openPdfFile function to the button click event
+            const openPdfButton = document.getElementById('openPdfButton');
+            openPdfButton.addEventListener('click', openPdfFile);
+        });
+
+        function redirectToPSVPage() {
+            // Replace 'destination.html' with the file path of your destination HTML file
+            window.location.href = 'psv.html';
+        }
+
+        function redirectToCommercialPage() {
+            // Replace 'destination.html' with the file path of your destination HTML file
+            window.location.href = 'commercial.html';
+        }
+
+        function redirectToPrivatePage() {
+            // Replace 'destination.html' with the file path of your destination HTML file
+            window.location.href = 'private.html';
+        }
+
+    </script>
+
+    <style>
+        /* Sticky Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+        <div class="container">
+            <a class="navbar-brand" href="/">Vision Insurance Services</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="sms:+254711446293">Text</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="tel:+254711446293">Call</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="https://wa.me/254711446293">WhatsApp</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <br>
+    <!-- Hero section -->
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+
+                    <img class="img-fluid" src="images7.jpeg" alt="..." class="img-fluid" />
+                </div>
+                <div class="col">
+                    <p>Welcome</p>
+                    <p>This is an online motor insurance platform where you can purchase any type of car insurance
+                        whether monthly or annual.We provide insurance cover for Public Services Vehicles(PSV),
+                        commercial motor, Private vehicles,and taxi to protect our clients from any liability at
+                        unbeatable price and efficient process.The main type of insurance policies are <br>
+                        1.Third Party Only (TPO)This is the basic, mandatory cover you as a motorist must have. It
+                        provides cover for third parties in case of bodily injury or damage to their property. Under
+                        TPO, we compensate the policy holder against legal liabilities incurred as a result of the use
+                        of the motor vehicle, such as, Third Party Injuries, Third Party Property Damage.<br>
+                        2.Comprehensive Insurance
+                        Comprehensive insurance is an auto insurance that provides protection to you, your car and third
+                        parties against all possible risks.
+                        <br>
+                    <p>
+                        Get Insurance Below : </p>
+                    </p>
+                    <div class="rounded shadow btn-group" role="group" aria-label="Button Group Example">
+                        <button onclick="redirectToPrivatePage()" type="button" class="btn btn-dark btn-md">Private
+                            Cars</button>
+                        <button onclick="redirectToCommercialPage()" type="button"
+                            class="btn btn-md btn-primary">Commercial Vehicles</button>
+                        <button onclick="redirectToPSVPage()" type="button" class="btn btn-md btn-success">Public
+                            Service Vehicles</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container">
+            <div class="row cards">
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- here is where they add the ICON -->
+                            <img class="img-fluid" src="IMAGE1.jpg" alt="..." class="icon">
+                            <h5 class="card-title">Vision</h5>
+                            <p class="card-text">To be the leading online insurance agency in Kenya in protecting your
+                                assets in terms of financial security in uncertain times
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- here is where they add the ICON -->
+                            <img class="img-fluid" src="IMAGE2.jpg" alt="..." class="icon">
+                            <h5 class="card-title">Mission </h5>
+                            <p class="card-text"> Our purpose is to be trusted by our customers through being present
+                                first and giving them best insurance advice and services by just a call or a text.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- here is where they add the ICON -->
+                            <img class="img-fluid" src="IMAGE3.jpg" alt="..." class="icon">
+                            <h5 class="card-title">Our values</h5>
+                            <p class="card-text"> Respect, Integrity, Innovation, Proficiency, Teamwork, Commitment,
+                                Courtesy and Customer Focus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hero section ends here -->
+    <br>
+    <!-- About Us -->
+    <section id="about-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <!-- another image can be inserted here -->
+                    <img class="img-fluid" src="image11.jpeg" alt="..." class="img-fluid" />
+                </div>
+                <div class="col">
+                    <h1>Vehicle Accident Cover Procedure </h1>
+                    <p>If Comprehensive you : <br>
+                        1.Report to traffic police,Take photos of scene,Notify the insurance company,Take car to
+                        garage/assessment centre <br>
+                        2.Submit documents to insurance (Police abstract,Filled claim form,Copy of Drivers id and copy
+                        of driving license,Photos)<br>
+                        3.Insurance advice (Assessment report,Required exesss,Investigation when necessary,Accept or
+                        Reject claim)<br>
+                        4.If Repairs(Repair authority,Repairs,Reinspection,Vehicle Release Letter)<br>
+                        5.If write off (Salvage taken by insurance,Receive offer to retain salvage,Accept discharge
+                        voucher,Transfer vehicle ownership to insurance,Surrender original logbook,Receive cash)</p>
+                    <button id="openPdfButton" type="button" style="red " class="btn btn-dark btn-lg">File A
+                        Claim!</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of About Us -->
+    <br>
+    <!-- Projects section -->
+    <div class="container">
+        <div class="row align-items-center projects">
+            <div class="col">
+                <h1>REQUIREMENTS</h1>
+                <p>
+                    The following client's information will be needed: <br>
+                    copy of the proposer's pin certificate,<br>
+                    copy of identification card copy/sacco name or certificate of incorporation and the car logbook.
+                    <br>
+                <p>For comprehensive cover a valuation letter will be issued by the insurance company of your choice to
+                    its panel of approved valuers.The age of the vehicle should be at least 10 to 15 years to be
+                    considered as an important factor for underwriting and as such the insurance company has the option
+                    to either accept or decline business on this basis.<br>
+                    Payment mode,you can pay insurance for your car through Cash,MPESA,Bankers cheque or Bank funds
+                    transfer</p>
+                </p>
+                <p>
+                    Payment options specify the monthly installment period either 3 monthly instalment period for annual
+                    duration or annual once</p>
+            </div>
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="card mb-3">
+                        <img class="img-fluid" src="image2.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">COMMERCIAL VEHICLE INSURANCE</h5>
+                            <p class="card-text">Options include:Own Goods and General Cartage of
+                                Tankers,Trailers,Tractors.</p>
+                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-3">
+                        <img class="img-fluid" src="images3.jpeg" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">PSV VEHICLE INSURANCE</h5>
+                            <p class="card-text">Options include : Comprehensive and Third party of Matatu,Taxi
+                                wasili,Car Hire and Tuktuk.</p>
+                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-3">
+                        <img class="img-fluid" src="images6.jpeg" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">PRIVATE AND PSV BODABODA INSURANCE</h5>
+                            <p class="card-text">Protection against legal liability to third parties arrising from the
+                                accident.</p>
+                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-3">
+                        <img class="img-fluid" src="images5.jpeg" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">PRIVATE CAR INSURANCE</h5>
+                            <p class="card-text">Benefits includes : Third party policy takes charge of the liabilities
+                                arising from the third party bodily injured and the property/vehicle damaged from the
+                                accident.</p>
+                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Projects Section -->
+    <br>
+    <div class="container align-items-center">
+        <h1>IN PARTNERSHIP WITH </h1>
+        <div class="row align-items-center ">
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="images10.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="WhatsApp-britam.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="WhatsApp-icelion.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="WhatsApp-APA.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="WhatsApp-kenyaOrient.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-2">
+                    <img class="img-fluid" src="WhatsApp-tebrisa.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="image13.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="image14.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="card mb-4">
+                    <img class="img-fluid" src="images8.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card mb-4">
+                    <img class="img-fluid" src=" WhatsApp-kenya-alliance.jpeg" class="rounded" alt="...">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <br>
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+
+            <div class="row align-items-center projects">
+                <div class="col">
+                    <h1>CONTACT US</h1><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_ZlU3hm.json"
+                        background="transparent" speed="1" style="width: 220px; height: 120px;" loop autoplay
+                        class="main-img">
+                    </lottie-player>
+
+                    <p>
+                        Mburu Gichua Roads<br>
+                        Ereto Plaza 3rd floor<br>
+                        Nakuru City, ST Kanu<br>
+                        Tel 07114462934
+                        <br>
+                        kendagorvision@gmail.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End of contact section -->
+    <br>
+    <br>
+    <!-- Sticky Footer -->
+    <div class="footer">
+        <p>2023 © VisionInsurance.co.ke ™ </p>
+    </div>
+
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+
+
+
+        </script>
+</body>
+
+</html>
