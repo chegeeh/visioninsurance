@@ -1,115 +1,349 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Include Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="icon" type="image/x-icon" href="favicon.png">
-  <title>Vision Insurance Services</title> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout – Vision Insurance Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-    /* Custom styles */
-    .card-img-bottom {
-      width: 100%;
-      max-height: 150px;
-      object-fit: cover;
-    }
-    .footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f8f9fa;
-    }
-    /* Adjust payment image size */
-    .payment-image {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C8102E;--red2:#a50d25;--dark:#1a1a1a;--grey:#f5f5f5;--border:#e0e0e0;--text:#333;--muted:#666;--white:#fff;--green:#25d366}
+body{background:var(--grey);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+.topbar{background:var(--red);color:#fff;font-size:.78rem;padding:.45rem 5%;display:flex;justify-content:space-between;align-items:center}
+.topbar a{color:#fff;opacity:.9}.topbar-links{display:flex;gap:1.5rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1.15rem;font-weight:700;color:var(--dark)}
+.logo-icon{width:34px;height:34px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center}.logo-icon svg{fill:#fff}
+.nav-links{display:flex;gap:.5rem;align-items:center}
+.nav-links a{padding:.42rem .9rem;border-radius:5px;font-size:.83rem;font-weight:500;color:var(--dark);transition:all .2s}
+.nav-links a:hover{background:var(--grey)}
+.nav-btn{background:var(--red)!important;color:#fff!important;border-radius:5px!important}
+
+.breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:.75rem 5%;font-size:.82rem;color:var(--muted)}
+.breadcrumb a{color:var(--red)}
+.breadcrumb span{margin:0 .4rem}
+
+/* PAGE LAYOUT */
+.page{max-width:900px;margin:0 auto;padding:2.5rem 5% 5rem}
+.page-header{margin-bottom:2rem}
+.page-tag{display:inline-block;background:#fef0f2;color:var(--red);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:4px;margin-bottom:.75rem}
+.page-header h1{font-size:1.75rem;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:.4rem}
+.page-header p{color:var(--muted);font-size:.92rem}
+
+/* PLAN SELECTOR */
+.plans-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem}
+.plan-card{background:#fff;border:2px solid var(--border);border-radius:10px;padding:1.5rem;cursor:pointer;transition:all .2s;text-align:center}
+.plan-card:hover{border-color:#c8102e55;box-shadow:0 4px 16px rgba(200,16,46,.1)}
+.plan-card.active{border-color:var(--red);background:#fef0f2}
+.plan-name{font-weight:700;font-size:.95rem;color:var(--dark);margin-bottom:.35rem}
+.plan-price{font-size:1.3rem;font-weight:700;color:var(--red);line-height:1}
+.plan-period{font-size:.75rem;color:var(--muted);margin-top:.2rem}
+.plan-monthly{font-size:.78rem;color:var(--muted);margin-top:.5rem;padding-top:.5rem;border-top:1px solid var(--border)}
+
+/* TWO COLUMN */
+.checkout-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+
+/* CARD SHARED */
+.card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.card-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);background:#fff}
+.card-header h2{font-size:1rem;font-weight:700;color:var(--dark);display:flex;align-items:center;gap:.6rem}
+.card-header h2 .badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.badge-num{background:var(--red);color:#fff}
+.badge-wa{background:var(--green);color:#fff}
+.card-body{padding:1.5rem}
+
+/* MPESA FLOW */
+.mpesa-hero{background:linear-gradient(135deg,#1a0a0d,#2d0d16);border-radius:8px;padding:1.75rem;margin-bottom:1.25rem;text-align:center}
+.mpesa-logo-text{font-size:1.5rem;font-weight:700;color:#fff;letter-spacing:2px;margin-bottom:.25rem}
+.mpesa-tagline{font-size:.78rem;color:rgba(255,255,255,.6)}
+.mpesa-steps{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.25rem}
+.mpesa-step{display:flex;align-items:flex-start;gap:.85rem;padding:1rem;background:var(--grey);border-radius:8px;border:1px solid var(--border)}
+.step-num{width:28px;height:28px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:.05rem}
+.step-content{}
+.step-title{font-size:.88rem;font-weight:700;color:var(--dark);margin-bottom:.15rem}
+.step-desc{font-size:.8rem;color:var(--muted);line-height:1.5}
+.step-highlight{display:inline-block;background:#fef0f2;color:var(--red);font-weight:700;padding:.1rem .5rem;border-radius:4px;font-size:.85rem;margin-top:.2rem}
+
+.detail-box{background:#f8f0f1;border:1px solid #f0d0d5;border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.detail-row{display:flex;justify-content:space-between;align-items:center;padding:.5rem 0;border-bottom:1px solid rgba(200,16,46,.1)}
+.detail-row:last-child{border:none;padding-bottom:0}
+.detail-key{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+.detail-val{font-size:1rem;font-weight:700;color:var(--red)}
+
+.confirm-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1rem;background:var(--red);color:#fff;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;cursor:pointer;transition:all .2s;margin-top:.5rem}
+.confirm-btn:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(200,16,46,.35)}
+
+/* AGENT SECTION */
+.agent-options{display:flex;flex-direction:column;gap:.85rem}
+.agent-option{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.25rem;border-radius:8px;border:1.5px solid var(--border);cursor:pointer;transition:all .2s;text-decoration:none;color:var(--dark);background:#fff}
+.agent-option:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.ao-wa{border-color:#25d36655;background:#f0fdf6}
+.ao-wa:hover{border-color:var(--green);box-shadow:0 6px 20px rgba(37,211,102,.2)}
+.ao-call{border-color:#c8102e44;background:#fef0f2}
+.ao-call:hover{border-color:var(--red);box-shadow:0 6px 20px rgba(200,16,46,.15)}
+.ao-sms{border-color:var(--border)}
+.ao-icon{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ao-icon.wa{background:var(--green)}.ao-icon.call{background:var(--red)}.ao-icon.sms{background:#444}
+.ao-icon svg{fill:#fff}
+.ao-text{flex:1}
+.ao-label{font-weight:700;font-size:.95rem;color:var(--dark)}
+.ao-sub{font-size:.8rem;color:var(--muted);margin-top:.1rem}
+.ao-arrow{color:var(--muted)}
+
+/* DIVIDER */
+.or-divider{display:flex;align-items:center;gap:1rem;margin:1.5rem 0;color:var(--muted);font-size:.82rem;font-weight:500}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* SECURITY BADGES */
+.security-row{display:flex;gap:.75rem;align-items:center;justify-content:center;padding:1.25rem;background:var(--grey);border-radius:8px;margin-top:1rem}
+.sec-badge{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--muted);font-weight:500}
+.sec-badge svg{fill:var(--muted)}
+
+/* SUMMARY CARD */
+.summary-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-bottom:2rem;box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.summary-title{font-size:.85rem;font-weight:700;color:var(--dark);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.5px}
+.summary-select{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border);border-radius:6px;font-family:'Inter',sans-serif;font-size:.9rem;color:var(--dark);outline:none;-webkit-appearance:none;appearance:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 1rem center;cursor:pointer;transition:border-color .2s}
+.summary-select:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.1)}
+.selected-price{display:flex;justify-content:space-between;align-items:center;margin-top:1rem;padding:1rem;background:var(--grey);border-radius:8px}
+.sp-label{font-size:.82rem;color:var(--muted)}
+.sp-price{font-size:1.4rem;font-weight:700;color:var(--red)}
+.sp-note{font-size:.75rem;color:var(--muted);margin-top:.1rem}
+
+footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-size:.82rem;margin-top:0}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{color:#fff;font-weight:700}
+
+@media(max-width:700px){
+  .checkout-grid,.plans-row{grid-template-columns:1fr}
+  .topbar{display:none}
+  .nav-links a:not(.nav-btn){display:none}
+}
+</style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/">Vision Insurance Services</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="sms:+254711446293">Text</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="tel:+254711446293">Call</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://wa.me/254711446293">WhatsApp</a>
-          </li>
-        </ul>            
+<div class="topbar">
+  <span>Regulated by the Insurance Regulatory Authority (IRA)</span>
+  <div class="topbar-links">
+    <a href="mailto:kendagorvision@gmail.com">kendagorvision@gmail.com</a>
+    <a href="tel:+254711446293">+254 711 446 293</a>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+    Vision Insurance
+  </a>
+  <div class="nav-links">
+    <a href="private.html">Private Car</a>
+    <a href="commercial.html">Commercial</a>
+    <a href="psv.html">PSV</a>
+    <a href="checkout.html" class="nav-btn">Pay Now</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>›</span>Checkout
+</div>
+
+<div class="page">
+  <div class="page-header">
+    <div class="page-tag">Secure Checkout</div>
+    <h1>Complete Your Payment</h1>
+    <p>Pay your premium via M-PESA or speak with one of our agents to get started.</p>
+  </div>
+
+  <!-- PLAN PICKER -->
+  <div class="summary-card">
+    <div class="summary-title">Select Your Cover</div>
+    <select class="summary-select" id="plan-select" onchange="updatePlan()">
+      <option value="private-annual">Private Car — Annual (KShs. 2,500)</option>
+      <option value="private-monthly">Private Car — Monthly Instalment (KShs. 2,000 / mo × 3)</option>
+      <option value="commercial-annual">Commercial Truck — Annual (KShs. 7,500)</option>
+      <option value="commercial-monthly">Commercial Truck — Monthly Instalment (KShs. 2,500 / mo × 3)</option>
+      <option value="psv-annual">PSV — Annual (KShs. 4,500)</option>
+    </select>
+    <div class="selected-price">
+      <div>
+        <div class="sp-label">Amount to Pay</div>
+        <div class="sp-note" id="plan-note">Annual premium</div>
       </div>
+      <div class="sp-price" id="plan-price">KShs. 2,500</div>
     </div>
-  </nav>
-  <!-- Navbar End -->
+  </div>
 
-  <div class="container mt-4">
+  <div class="checkout-grid">
 
-    <!-- Private Car Insurance -->
-    <div class="card mb-4">
-        <div class="card-header bg-primary text-white">
-            <h2>Private Car Insurance</h2>
-        </div>
-        <div class="card-body">
-            <p>Annual Premium: 2500ksh</p>
-            <p>Payment Options:</p>
-            <ul>
-                <li>Payable in 3 installments: 2000ksh monthly</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Commercial Car Insurance -->
-    <div class="card mb-4">
-        <div class="card-header bg-success text-white">
-            <h2>Commercial Car Insurance</h2>
-        </div>
-        <div class="card-body">
-            <p>Annual Premium: 7500ksh</p>
-            <p>Payment Options:</p>
-            <ul>
-                <li>Payable in 3 installments: 2500ksh monthly</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- PSV Car Insurance -->
-    <div class="card mb-4">
-        <div class="card-header bg-info text-white">
-            <h2>PSV Car Insurance</h2>
-        </div>
-        <div class="card-body">
-            <p>Annual Premium: 4500ksh</p>
-            <p>Payment Options:</p>
-            <p>Note: Multiple payment options available, contact us for details.</p>
-        </div>
-    </div>
-
-    <div class="card mb-4">
-      <img class="card-img-top payment-image" src="payment.jpeg" alt="Card image cap">
+    <!-- MPESA -->
+    <div class="card">
+      <div class="card-header">
+        <h2><span class="badge badge-num">1</span>Pay via M-PESA</h2>
+      </div>
       <div class="card-body">
-        <h5 class="card-title">Payment info</h5>
-        <p class="card-text">Paybill 247247</p>
-        <p class="card-text">Account Number 0711446293</p>
+        <div class="mpesa-hero">
+          <div class="mpesa-logo-text">M-PESA</div>
+          <div class="mpesa-tagline">Send money · Pay bills · Buy airtime</div>
+        </div>
+
+        <div class="detail-box">
+          <div class="detail-row"><span class="detail-key">Paybill Number</span><span class="detail-val">247247</span></div>
+          <div class="detail-row"><span class="detail-key">Account Number</span><span class="detail-val">0711446293</span></div>
+          <div class="detail-row"><span class="detail-key">Amount</span><span class="detail-val" id="mpesa-amount">KShs. 2,500</span></div>
+        </div>
+
+        <div class="mpesa-steps">
+          <div class="mpesa-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-title">Go to M-PESA on your phone</div>
+              <div class="step-desc">Open the Safaricom app or dial <span class="step-highlight">*334#</span> then select <strong>Lipa na M-PESA</strong></div>
+            </div>
+          </div>
+          <div class="mpesa-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-title">Select Pay Bill</div>
+              <div class="step-desc">Choose <strong>Pay Bill</strong>, then enter Business Number: <span class="step-highlight">247247</span></div>
+            </div>
+          </div>
+          <div class="mpesa-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-title">Enter Account Number</div>
+              <div class="step-desc">Account Number: <span class="step-highlight">0711446293</span></div>
+            </div>
+          </div>
+          <div class="mpesa-step">
+            <div class="step-num">4</div>
+            <div class="step-content">
+              <div class="step-title">Enter Amount & Confirm</div>
+              <div class="step-desc">Enter <span class="step-highlight" id="step-amount">2,500</span>, enter your M-PESA PIN and confirm. You'll receive an SMS confirmation.</div>
+            </div>
+          </div>
+          <div class="mpesa-step">
+            <div class="step-num">5</div>
+            <div class="step-content">
+              <div class="step-title">Send us your confirmation</div>
+              <div class="step-desc">Forward the M-PESA confirmation SMS to us on WhatsApp or call us. We'll activate your cover immediately.</div>
+            </div>
+          </div>
+        </div>
+
+        <button class="confirm-btn" onclick="confirmPayment()">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg>
+          I've Paid — Send Confirmation via WhatsApp
+        </button>
+
+        <div class="security-row">
+          <div class="sec-badge"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>IRA Regulated</div>
+          <div class="sec-badge"><svg width="14" height="14" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Secure Payment</div>
+          <div class="sec-badge"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.17 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>Instant Cover</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Sticky Footer -->
-  <div class="footer">
-    <p>2023 © VisionInsurance.co.ke ™</p>
+    <!-- AGENT -->
+    <div>
+      <div class="card">
+        <div class="card-header">
+          <h2><span class="badge badge-wa">2</span>Talk to an Agent</h2>
+        </div>
+        <div class="card-body">
+          <p style="font-size:.88rem;color:var(--muted);margin-bottom:1.25rem">Need help choosing a plan, have questions, or prefer to pay another way? Our team is available to assist you right now.</p>
+
+          <div class="agent-options">
+            <a href="https://wa.me/254711446293?text=Hi%2C%20I%20would%20like%20to%20pay%20for%20my%20motor%20insurance%20cover." class="agent-option ao-wa" target="_blank">
+              <div class="ao-icon wa"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg></div>
+              <div class="ao-text"><div class="ao-label">Chat on WhatsApp</div><div class="ao-sub">+254 711 446 293 · Usually replies in minutes</div></div>
+              <svg class="ao-arrow" width="18" height="18" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </a>
+
+            <a href="tel:+254711446293" class="agent-option ao-call">
+              <div class="ao-icon call"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.17 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
+              <div class="ao-text"><div class="ao-label">Call Us Now</div><div class="ao-sub">+254 711 446 293 · Mon–Sat 8am–6pm</div></div>
+              <svg class="ao-arrow" width="18" height="18" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </a>
+
+            <a href="sms:+254711446293" class="agent-option ao-sms">
+              <div class="ao-icon sms"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg></div>
+              <div class="ao-text"><div class="ao-label">Send a Text / SMS</div><div class="ao-sub">+254 711 446 293 · We'll reply shortly</div></div>
+              <svg class="ao-arrow" width="18" height="18" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            </a>
+          </div>
+
+          <div class="or-divider">or reach us at</div>
+
+          <div style="background:var(--grey);border-radius:8px;padding:1.25rem;font-size:.85rem;color:var(--muted);line-height:1.8">
+            <strong style="color:var(--dark);display:block;margin-bottom:.5rem">Office Address</strong>
+            Mburu Gichua Roads, Ereto Plaza 3rd Floor<br>
+            Nakuru City<br>
+            <a href="mailto:kendagorvision@gmail.com" style="color:var(--red)">kendagorvision@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OTHER PAYMENT METHODS -->
+      <div class="card" style="margin-top:1.5rem">
+        <div class="card-header"><h2>Other Payment Methods</h2></div>
+        <div class="card-body">
+          <div style="display:flex;flex-direction:column;gap:.75rem;font-size:.88rem;color:var(--text)">
+            <div style="display:flex;align-items:center;gap:.75rem;padding:.75rem;background:var(--grey);border-radius:6px">
+              <svg width="18" height="18" fill="var(--red)" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>
+              <span><strong>Cash</strong> — Pay in person at our Nakuru office</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.75rem;padding:.75rem;background:var(--grey);border-radius:6px">
+              <svg width="18" height="18" fill="var(--red)" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10" stroke="white" stroke-width="2"/></svg>
+              <span><strong>Bankers Cheque</strong> — Payable to Vision Insurance</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.75rem;padding:.75rem;background:var(--grey);border-radius:6px">
+              <svg width="18" height="18" fill="var(--red)" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              <span><strong>Bank Transfer</strong> — Contact us for bank details</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-  
-  <!-- Include Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Vision Insurance Services</span>
+    <span>2023 © VisionInsurance.co.ke ™ · Regulated by IRA</span>
+  </div>
+</footer>
+
+<script>
+const plans = {
+  'private-annual':   { price: 'KShs. 2,500',  amount: '2,500',  note: 'Annual premium' },
+  'private-monthly':  { price: 'KShs. 2,000',  amount: '2,000',  note: 'Monthly instalment × 3 months' },
+  'commercial-annual':{ price: 'KShs. 7,500',  amount: '7,500',  note: 'Annual premium' },
+  'commercial-monthly':{ price: 'KShs. 2,500', amount: '2,500',  note: 'Monthly instalment × 3 months' },
+  'psv-annual':       { price: 'KShs. 4,500',  amount: '4,500',  note: 'Annual premium' },
+};
+
+function updatePlan() {
+  const key = document.getElementById('plan-select').value;
+  const p = plans[key];
+  document.getElementById('plan-price').textContent = p.price;
+  document.getElementById('plan-note').textContent = p.note;
+  document.getElementById('mpesa-amount').textContent = p.price;
+  document.getElementById('step-amount').textContent = p.amount;
+}
+
+function confirmPayment() {
+  const key = document.getElementById('plan-select').value;
+  const p = plans[key];
+  const planLabel = document.getElementById('plan-select').options[document.getElementById('plan-select').selectedIndex].text;
+  const msg = `Hi, I have paid for my insurance cover via M-PESA.\n\nPlan: ${planLabel}\nAmount: ${p.price}\nPaybill: 247247\nAccount: 0711446293\n\nPlease confirm my cover. Thank you.`;
+  window.open('https://wa.me/254711446293?text=' + encodeURIComponent(msg), '_blank');
+}
+
+updatePlan();
+</script>
 </body>
 </html>
