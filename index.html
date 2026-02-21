@@ -1,369 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Vision Insurance Services</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vision Insurance Services – Online Motor Insurance Kenya</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C8102E;--red2:#a50d25;--dark:#1a1a1a;--grey:#f5f5f5;--border:#e0e0e0;--text:#333;--muted:#666;--white:#fff}
+body{background:var(--white);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
 
-    <script>
+/* TOP BAR */
+.topbar{background:var(--red);color:#fff;font-size:.78rem;padding:.45rem 5%;display:flex;justify-content:space-between;align-items:center}
+.topbar a{color:#fff;opacity:.9;transition:opacity .2s}.topbar a:hover{opacity:1}
+.topbar-links{display:flex;gap:1.5rem}
 
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1.25rem;font-weight:700;color:var(--dark)}
+.logo-icon{width:36px;height:36px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center}
+.logo-icon svg{fill:#fff}
+.nav-links{display:flex;gap:.5rem;align-items:center}
+.nav-links a{padding:.45rem 1rem;border-radius:5px;font-size:.85rem;font-weight:500;color:var(--dark);transition:all .2s}
+.nav-links a:hover{background:var(--grey)}
+.nav-btn{background:var(--red)!important;color:#fff!important;padding:.5rem 1.25rem!important;border-radius:5px!important}
+.nav-btn:hover{background:var(--red2)!important}
 
-        document.addEventListener("DOMContentLoaded", function () {
-            // Function to handle the button click and open the PDF in a new window
-            function openPdfFile() {
-                // Replace 'file_path/file_name.pdf' with the actual PDF file path and name
-                const pdfFilePath = '/claims.pdf';
+/* HERO */
+.hero{position:relative;background:linear-gradient(135deg,#1a0a0d 0%,#2d0d16 40%,#1a0010 100%);min-height:520px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;opacity:.18}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-pattern{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:28px 28px}
+.hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:4rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(200,16,46,.25);border:1px solid rgba(200,16,46,.5);color:#ffb3be;font-size:.73rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:.35rem .9rem;border-radius:20px;margin-bottom:1.25rem}
+.hero h1{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:700;line-height:1.15;color:#fff;margin-bottom:1rem}
+.hero h1 span{color:#ff6b80}
+.hero p{color:rgba(255,255,255,.75);font-size:1rem;line-height:1.7;margin-bottom:2rem;max-width:420px}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.75rem;background:var(--red);color:#fff;border-radius:6px;font-weight:600;font-size:.9rem;transition:all .2s;border:none;cursor:pointer}
+.btn-primary:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,16,46,.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.75rem;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4);border-radius:6px;font-weight:600;font-size:.9rem;transition:all .2s;cursor:pointer}
+.btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.7)}
+.hero-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:2rem;backdrop-filter:blur(8px)}
+.hero-card h3{color:#fff;font-size:1rem;font-weight:600;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid rgba(255,255,255,.12)}
+.mpesa-block{background:rgba(0,0,0,.25);border-radius:8px;padding:1.25rem;margin-bottom:1rem}
+.mpesa-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.5);margin-bottom:.2rem}
+.mpesa-val{color:#fff;font-size:1.1rem;font-weight:700}
+.quick-links{display:flex;flex-direction:column;gap:.5rem}
+.quick-link{display:flex;align-items:center;justify-content:space-between;padding:.75rem 1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#fff;font-size:.88rem;font-weight:500;transition:all .2s}
+.quick-link:hover{background:rgba(200,16,46,.2);border-color:rgba(200,16,46,.4)}
+.quick-link svg{fill:rgba(255,255,255,.5);flex-shrink:0}
 
-                // Open the PDF file in a new window
-                window.open(pdfFilePath, '_blank');
-            }
+/* STATS */
+.stats{background:var(--grey);border-bottom:1px solid var(--border)}
+.stats-inner{max-width:1100px;margin:0 auto;padding:2.5rem 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+.stat{text-align:center}
+.stat-n{font-size:2rem;font-weight:700;color:var(--red);line-height:1}
+.stat-l{font-size:.8rem;color:var(--muted);margin-top:.25rem}
 
-            // Attach the openPdfFile function to the button click event
-            const openPdfButton = document.getElementById('openPdfButton');
-            openPdfButton.addEventListener('click', openPdfFile);
-        });
+/* SECTIONS */
+.section{padding:5rem 5%}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-header{margin-bottom:3rem}
+.section-tag{display:inline-block;background:#fef0f2;color:var(--red);font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:4px;margin-bottom:.75rem}
+.section h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--dark);line-height:1.2}
+.section-sub{color:var(--muted);font-size:.95rem;margin-top:.5rem;max-width:500px}
 
-        function redirectToPSVPage() {
-            // Replace 'destination.html' with the file path of your destination HTML file
-            window.location.href = 'psv.html';
-        }
+/* PRODUCT CARDS */
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.prod-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .3s;background:#fff}
+.prod-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.1);transform:translateY(-3px);border-color:#c8102e33}
+.prod-img{width:100%;height:180px;object-fit:cover;display:block}
+.prod-body{padding:1.5rem}
+.prod-tag{display:inline-block;background:#fef0f2;color:var(--red);font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:.2rem .6rem;border-radius:3px;margin-bottom:.75rem}
+.prod-title{font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.prod-desc{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:1.25rem}
+.prod-price{font-size:.8rem;color:var(--muted);margin-bottom:1rem;padding-top:.75rem;border-top:1px solid var(--border)}
+.prod-price strong{color:var(--red);font-size:1rem}
+.prod-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.7rem;background:var(--red);color:#fff;border-radius:6px;font-weight:600;font-size:.88rem;transition:all .2s}
+.prod-btn:hover{background:var(--red2)}
 
-        function redirectToCommercialPage() {
-            // Replace 'destination.html' with the file path of your destination HTML file
-            window.location.href = 'commercial.html';
-        }
+/* INFO STRIPS */
+.info-strip{background:var(--grey);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.info-grid{max-width:1100px;margin:0 auto;padding:4rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.info-img{width:100%;border-radius:10px;display:block;aspect-ratio:4/3;object-fit:cover}
+.info-text .section-tag{margin-bottom:.75rem}
+.info-text h2{font-size:1.8rem;font-weight:700;color:var(--dark);margin-bottom:1rem;line-height:1.25}
+.info-text p{color:var(--muted);font-size:.9rem;line-height:1.75;margin-bottom:.75rem}
+.val-list{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem}
+.val-item{display:flex;align-items:flex-start;gap:.75rem}
+.val-icon{width:32px;height:32px;background:#fef0f2;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.val-icon svg{fill:var(--red)}
+.val-text{font-size:.88rem;color:var(--text);line-height:1.5}
+.val-text strong{display:block;font-weight:600;color:var(--dark);margin-bottom:.1rem}
 
-        function redirectToPrivatePage() {
-            // Replace 'destination.html' with the file path of your destination HTML file
-            window.location.href = 'private.html';
-        }
+/* COVER TYPES */
+.cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.cover-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:2rem;border-left:4px solid var(--red)}
+.cover-num{font-size:2.5rem;font-weight:700;color:#fef0f2;line-height:1;margin-bottom:.5rem}
+.cover-title{font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:.75rem}
+.cover-text{font-size:.875rem;color:var(--muted);line-height:1.7}
 
-    </script>
+/* STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.step-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1.75rem;position:relative}
+.step-num{width:36px;height:36px;background:var(--red);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;margin-bottom:1rem}
+.step-title{font-size:.95rem;font-weight:700;color:var(--dark);margin-bottom:.5rem}
+.step-text{font-size:.82rem;color:var(--muted);line-height:1.6}
 
-    <style>
-        /* Sticky Footer */
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #f8f9fa;
-            padding: 10px 0;
-            width: 100%;
-            text-align: center;
-        }
-    </style>
+/* PARTNERS */
+.partners-row{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;align-items:center;padding:2rem 0}
+.partner-logo{height:50px;width:auto;max-width:110px;object-fit:contain;filter:grayscale(.5);opacity:.75;transition:all .3s;border-radius:4px}
+.partner-logo:hover{filter:none;opacity:1}
 
+/* PAYMENT */
+.pay-section{background:var(--red)}
+.pay-inner{max-width:1100px;margin:0 auto;padding:4rem 5%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.pay-text h2{font-size:1.8rem;font-weight:700;color:#fff;margin-bottom:1rem}
+.pay-text p{color:rgba(255,255,255,.8);font-size:.95rem;line-height:1.7;margin-bottom:1.5rem}
+.pay-details{background:rgba(0,0,0,.2);border-radius:10px;padding:2rem}
+.pay-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.pay-row:last-child{border:none}
+.pay-key{font-size:.78rem;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,.6)}
+.pay-val{font-size:1.1rem;font-weight:700;color:#fff}
+.pay-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+.btn-white{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;background:#fff;color:var(--red);border-radius:6px;font-weight:700;font-size:.9rem;transition:all .2s}
+.btn-white:hover{background:#fef0f2;transform:translateY(-1px)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.contact-detail{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem}
+.cd-icon{width:42px;height:42px;background:#fef0f2;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cd-icon svg{fill:var(--red)}
+.cd-label{font-size:.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:.2rem}
+.cd-val{font-size:.95rem;color:var(--dark);font-weight:500}
+.cta-buttons{display:flex;flex-direction:column;gap:.85rem}
+.cta-big{display:flex;align-items:center;gap:1rem;padding:1rem 1.5rem;border-radius:8px;font-weight:600;font-size:.95rem;transition:all .2s;border:none;cursor:pointer}
+.cta-wa{background:#25d366;color:#fff}
+.cta-wa:hover{background:#1eb558;transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,211,102,.3)}
+.cta-call{background:var(--red);color:#fff}
+.cta-call:hover{background:var(--red2);transform:translateY(-2px)}
+.cta-sms{background:var(--grey);color:var(--dark);border:1px solid var(--border)}
+.cta-sms:hover{background:#ebebeb}
+.cta-big svg{fill:currentColor;flex-shrink:0}
+.cta-big span{flex:1}
+
+footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-size:.82rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{color:#fff;font-weight:700;font-size:1rem;display:flex;align-items:center;gap:.5rem}
+.footer-reg{font-size:.75rem;color:rgba(255,255,255,.4);margin-top:.2rem}
+
+@media(max-width:960px){
+  .hero-inner,.info-grid,.contact-grid,.pay-inner{grid-template-columns:1fr}
+  .hero-card{display:none}
+  .products-grid{grid-template-columns:1fr 1fr}
+  .steps-grid{grid-template-columns:1fr 1fr}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .products-grid,.cover-grid,.steps-grid,.stats-inner{grid-template-columns:1fr}
+  .topbar{display:none}
+  .nav-links a:not(.nav-btn){display:none}
+}
+</style>
 </head>
-
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
-        <div class="container">
-            <a class="navbar-brand" href="/">Vision Insurance Services</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="sms:+254711446293">Text</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="tel:+254711446293">Call</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="https://wa.me/254711446293">WhatsApp</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar End -->
-    <br>
-    <!-- Hero section -->
-    <section id="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col">
+<!-- TOP BAR -->
+<div class="topbar">
+  <span>Regulated by the Insurance Regulatory Authority (IRA)</span>
+  <div class="topbar-links">
+    <a href="mailto:kendagorvision@gmail.com">kendagorvision@gmail.com</a>
+    <a href="tel:+254711446293">+254 711 446 293</a>
+  </div>
+</div>
 
-                    <img class="img-fluid" src="images7.jpeg" alt="..." class="img-fluid" />
-                </div>
-                <div class="col">
-                    <p>Welcome</p>
-                    <p>This is an online motor insurance platform where you can purchase any type of car insurance
-                        whether monthly or annual.We provide insurance cover for Public Services Vehicles(PSV),
-                        commercial motor, Private vehicles,and taxi to protect our clients from any liability at
-                        unbeatable price and efficient process.The main type of insurance policies are <br>
-                        1.Third Party Only (TPO)This is the basic, mandatory cover you as a motorist must have. It
-                        provides cover for third parties in case of bodily injury or damage to their property. Under
-                        TPO, we compensate the policy holder against legal liabilities incurred as a result of the use
-                        of the motor vehicle, such as, Third Party Injuries, Third Party Property Damage.<br>
-                        2.Comprehensive Insurance
-                        Comprehensive insurance is an auto insurance that provides protection to you, your car and third
-                        parties against all possible risks.
-                        <br>
-                    <p>
-                        Get Insurance Below : </p>
-                    </p>
-                    <div class="rounded shadow btn-group" role="group" aria-label="Button Group Example">
-                        <button onclick="redirectToPrivatePage()" type="button" class="btn btn-dark btn-md">Private
-                            Cars</button>
-                        <button onclick="redirectToCommercialPage()" type="button"
-                            class="btn btn-md btn-primary">Commercial Vehicles</button>
-                        <button onclick="redirectToPSVPage()" type="button" class="btn btn-md btn-success">Public
-                            Service Vehicles</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="container">
-            <div class="row cards">
-                <div class="col-md-4 d-flex justify-content-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- here is where they add the ICON -->
-                            <img class="img-fluid" src="IMAGE1.jpg" alt="..." class="icon">
-                            <h5 class="card-title">Vision</h5>
-                            <p class="card-text">To be the leading online insurance agency in Kenya in protecting your
-                                assets in terms of financial security in uncertain times
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex justify-content-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- here is where they add the ICON -->
-                            <img class="img-fluid" src="IMAGE2.jpg" alt="..." class="icon">
-                            <h5 class="card-title">Mission </h5>
-                            <p class="card-text"> Our purpose is to be trusted by our customers through being present
-                                first and giving them best insurance advice and services by just a call or a text.
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex justify-content-center">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- here is where they add the ICON -->
-                            <img class="img-fluid" src="IMAGE3.jpg" alt="..." class="icon">
-                            <h5 class="card-title">Our values</h5>
-                            <p class="card-text"> Respect, Integrity, Innovation, Proficiency, Teamwork, Commitment,
-                                Courtesy and Customer Focus.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Hero section ends here -->
-    <br>
-    <!-- About Us -->
-    <section id="about-us">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col">
-                    <!-- another image can be inserted here -->
-                    <img class="img-fluid" src="image11.jpeg" alt="..." class="img-fluid" />
-                </div>
-                <div class="col">
-                    <h1>Vehicle Accident Cover Procedure </h1>
-                    <p>If Comprehensive you : <br>
-                        1.Report to traffic police,Take photos of scene,Notify the insurance company,Take car to
-                        garage/assessment centre <br>
-                        2.Submit documents to insurance (Police abstract,Filled claim form,Copy of Drivers id and copy
-                        of driving license,Photos)<br>
-                        3.Insurance advice (Assessment report,Required exesss,Investigation when necessary,Accept or
-                        Reject claim)<br>
-                        4.If Repairs(Repair authority,Repairs,Reinspection,Vehicle Release Letter)<br>
-                        5.If write off (Salvage taken by insurance,Receive offer to retain salvage,Accept discharge
-                        voucher,Transfer vehicle ownership to insurance,Surrender original logbook,Receive cash)</p>
-                    <button id="openPdfButton" type="button" style="red " class="btn btn-dark btn-lg">File A
-                        Claim!</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End of About Us -->
-    <br>
-    <!-- Projects section -->
-    <div class="container">
-        <div class="row align-items-center projects">
-            <div class="col">
-                <h1>REQUIREMENTS</h1>
-                <p>
-                    The following client's information will be needed: <br>
-                    copy of the proposer's pin certificate,<br>
-                    copy of identification card copy/sacco name or certificate of incorporation and the car logbook.
-                    <br>
-                <p>For comprehensive cover a valuation letter will be issued by the insurance company of your choice to
-                    its panel of approved valuers.The age of the vehicle should be at least 10 to 15 years to be
-                    considered as an important factor for underwriting and as such the insurance company has the option
-                    to either accept or decline business on this basis.<br>
-                    Payment mode,you can pay insurance for your car through Cash,MPESA,Bankers cheque or Bank funds
-                    transfer</p>
-                </p>
-                <p>
-                    Payment options specify the monthly installment period either 3 monthly instalment period for annual
-                    duration or annual once</p>
-            </div>
-            <div class="row align-items-center">
-                <div class="col">
-                    <div class="card mb-3">
-                        <img class="img-fluid" src="image2.jpeg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">COMMERCIAL VEHICLE INSURANCE</h5>
-                            <p class="card-text">Options include:Own Goods and General Cartage of
-                                Tankers,Trailers,Tractors.</p>
-                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card mb-3">
-                        <img class="img-fluid" src="images3.jpeg" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">PSV VEHICLE INSURANCE</h5>
-                            <p class="card-text">Options include : Comprehensive and Third party of Matatu,Taxi
-                                wasili,Car Hire and Tuktuk.</p>
-                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card mb-3">
-                        <img class="img-fluid" src="images6.jpeg" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">PRIVATE AND PSV BODABODA INSURANCE</h5>
-                            <p class="card-text">Protection against legal liability to third parties arrising from the
-                                accident.</p>
-                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card mb-3">
-                        <img class="img-fluid" src="images5.jpeg" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">PRIVATE CAR INSURANCE</h5>
-                            <p class="card-text">Benefits includes : Third party policy takes charge of the liabilities
-                                arising from the third party bodily injured and the property/vehicle damaged from the
-                                accident.</p>
-                            <p class="card-text"><small class="text-muted">Contact me for more info</small></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+    Vision Insurance
+  </a>
+  <div class="nav-links">
+    <a href="private.html">Private Car</a>
+    <a href="commercial.html">Commercial</a>
+    <a href="psv.html">PSV</a>
+    <a href="checkout.html" class="nav-btn">Pay Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"><img src="https://visioninsurance.co.ke/images7.jpeg" alt="" onerror="this.style.display='none'"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>IRA Regulated · Nakuru, Kenya</div>
+      <h1>Protect Your<br>Vehicle with <span>Confidence</span></h1>
+      <p>Fast, affordable motor insurance for private cars, commercial trucks, and PSVs. Monthly or annual cover — get insured in minutes.</p>
+      <div class="hero-ctas">
+        <a href="private.html" class="btn-primary"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Get a Quote</a>
+        <a href="checkout.html" class="btn-outline"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>Pay via M-PESA</a>
+      </div>
     </div>
-    <!-- End of Projects Section -->
-    <br>
-    <div class="container align-items-center">
-        <h1>IN PARTNERSHIP WITH </h1>
-        <div class="row align-items-center ">
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="images10.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="WhatsApp-britam.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="WhatsApp-icelion.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="WhatsApp-APA.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="WhatsApp-kenyaOrient.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col">
-                <div class="card mb-2">
-                    <img class="img-fluid" src="WhatsApp-tebrisa.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="image13.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="image14.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2 ">
-                <div class="card mb-4">
-                    <img class="img-fluid" src="images8.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card mb-4">
-                    <img class="img-fluid" src=" WhatsApp-kenya-alliance.jpeg" class="rounded" alt="...">
-                </div>
-            </div>
+    <div class="hero-card">
+      <h3>Quick Payment</h3>
+      <div class="mpesa-block">
+        <div class="mpesa-label">M-PESA Paybill</div>
+        <div class="mpesa-val">247247</div>
+      </div>
+      <div class="mpesa-block">
+        <div class="mpesa-label">Account Number</div>
+        <div class="mpesa-val">0711446293</div>
+      </div>
+      <div class="quick-links">
+        <a href="private.html" class="quick-link">Private Car Insurance<svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none"/></svg></a>
+        <a href="commercial.html" class="quick-link">Commercial Truck<svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none"/></svg></a>
+        <a href="psv.html" class="quick-link">PSV Insurance<svg width="16" height="16" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Cover Types</div></div>
+    <div class="stat"><div class="stat-n">8+</div><div class="stat-l">Insurance Partners</div></div>
+    <div class="stat"><div class="stat-n">24/7</div><div class="stat-l">Customer Support</div></div>
+    <div class="stat"><div class="stat-n">Fast</div><div class="stat-l">Quote & Pay Process</div></div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Our Products</div>
+      <h2>Choose Your Motor Cover</h2>
+      <p class="section-sub">Select the policy that matches your vehicle. All quotes go directly to our team via WhatsApp or SMS.</p>
+    </div>
+    <div class="products-grid">
+      <div class="prod-card">
+        <img class="prod-img" src="https://visioninsurance.co.ke/private.webp" alt="Private Car" onerror="this.style.background='#f5f5f5'">
+        <div class="prod-body">
+          <div class="prod-tag">Private</div>
+          <div class="prod-title">Private Car Insurance</div>
+          <div class="prod-desc">Saloon, Pickup, Hatchback & Station Wagon. Comprehensive, Third Party, or Third Party Fire & Theft.</div>
+          <div class="prod-price">Annual premium from <strong>KShs. 2,500</strong> · 3-month instalment available</div>
+          <a href="private.html" class="prod-btn">Get Quote <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" fill="none"/></svg></a>
         </div>
-    </div>
-    </div>
-    </div>
-    <br>
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-
-            <div class="row align-items-center projects">
-                <div class="col">
-                    <h1>CONTACT US</h1><lottie-player src="https://assets4.lottiefiles.com/packages/lf20_ZlU3hm.json"
-                        background="transparent" speed="1" style="width: 220px; height: 120px;" loop autoplay
-                        class="main-img">
-                    </lottie-player>
-
-                    <p>
-                        Mburu Gichua Roads<br>
-                        Ereto Plaza 3rd floor<br>
-                        Nakuru City, ST Kanu<br>
-                        Tel 07114462934
-                        <br>
-                        kendagorvision@gmail.com
-                    </p>
-                </div>
-            </div>
+      </div>
+      <div class="prod-card">
+        <img class="prod-img" src="https://visioninsurance.co.ke/WhatsApp-truck.jpeg" alt="Commercial" onerror="this.style.background='#f5f5f5'">
+        <div class="prod-body">
+          <div class="prod-tag">Commercial</div>
+          <div class="prod-title">Commercial Truck Insurance</div>
+          <div class="prod-desc">Own Goods, General Cartage, Tankers, Trailers & Tractors. Comprehensive or Third Party cover.</div>
+          <div class="prod-price">Annual premium from <strong>KShs. 7,500</strong> · 3-month instalment available</div>
+          <a href="commercial.html" class="prod-btn">Get Quote <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" fill="none"/></svg></a>
         </div>
-    </section>
-    <!-- End of contact section -->
-    <br>
-    <br>
-    <!-- Sticky Footer -->
-    <div class="footer">
-        <p>2023 © VisionInsurance.co.ke ™ </p>
+      </div>
+      <div class="prod-card">
+        <img class="prod-img" src="https://visioninsurance.co.ke/matatu.webp" alt="PSV" onerror="this.style.background='#f5f5f5'">
+        <div class="prod-body">
+          <div class="prod-tag">PSV</div>
+          <div class="prod-title">PSV Insurance</div>
+          <div class="prod-desc">Matatu, Bus, Taxi, Car Hire & Tuk Tuk. Motor PSV, Chauffeur Driven & Institutional cover.</div>
+          <div class="prod-price">Annual premium from <strong>KShs. 4,500</strong> · Contact us for instalment options</div>
+          <a href="psv.html" class="prod-btn">Get Quote <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" fill="none"/></svg></a>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
+<!-- ABOUT -->
+<div class="info-strip">
+  <div class="info-grid">
+    <img class="info-img" src="https://visioninsurance.co.ke/IMAGE1.jpg" alt="About Vision Insurance" onerror="this.style.background='#e0e0e0'">
+    <div class="info-text">
+      <div class="section-tag">About Us</div>
+      <h2>Kenya's Online Motor Insurance Platform</h2>
+      <p>We are an online motor insurance platform where you can purchase any type of car insurance — monthly or annual. We provide cover for PSV, commercial motor, private vehicles, and taxis at unbeatable prices with an efficient process.</p>
+      <p>Pay via Cash, M-PESA, Bankers Cheque, or Bank Transfer. Choose 3-month instalments or pay annually.</p>
+      <div class="val-list">
+        <div class="val-item"><div class="val-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div><div class="val-text"><strong>Our Vision</strong>To be the leading online insurance agency in Kenya.</div></div>
+        <div class="val-item"><div class="val-icon"><svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="2" fill="none"/></svg></div><div class="val-text"><strong>Our Mission</strong>Trusted advice and service by just a call or text.</div></div>
+        <div class="val-item"><div class="val-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div><div class="val-text"><strong>Our Values</strong>Respect, Integrity, Innovation, Teamwork & Customer Focus.</div></div>
+      </div>
     </div>
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </div>
+</div>
 
+<!-- COVER TYPES -->
+<section class="section" style="background:var(--grey)">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Policy Types</div>
+      <h2>Understanding Your Cover</h2>
+    </div>
+    <div class="cover-grid">
+      <div class="cover-card"><div class="cover-num">01</div><div class="cover-title">Third Party Only (TPO)</div><div class="cover-text">The basic, mandatory cover every motorist must have. Provides cover for third parties in case of bodily injury or property damage. Compensates you against legal liabilities from use of the motor vehicle — including Third Party Injuries and Third Party Property Damage.</div></div>
+      <div class="cover-card"><div class="cover-num">02</div><div class="cover-title">Comprehensive Insurance</div><div class="cover-text">Full protection for you, your car, and third parties against all possible risks. Includes everything in Third Party plus damage to your own vehicle from accidents, fire, theft, and more. Best value for vehicles valued over KShs. 500,000.</div></div>
+    </div>
+  </div>
+</section>
 
+<!-- CLAIM STEPS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Claims Process</div>
+      <h2>Vehicle Accident Cover Procedure</h2>
+      <p class="section-sub">Follow these steps after an accident for a smooth claims process.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">1</div><div class="step-title">Report & Document</div><div class="step-text">Report to traffic police, take photos of the scene, notify the insurance company, take car to a garage or assessment centre.</div></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-title">Submit Documents</div><div class="step-text">Submit police abstract, filled claim form, copy of driver's ID and driving license, and photos to the insurer.</div></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-title">Insurance Review</div><div class="step-text">Insurer provides assessment report, required excess, and investigates when necessary before accepting or rejecting the claim.</div></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-title">Resolution</div><div class="step-text">Repairs: authority issued, car repaired, reinspected and released. Write-off: salvage taken, offer made, cash settlement received.</div></div>
+    </div>
+  </div>
+</section>
 
-        </script>
+<!-- PAYMENT STRIP -->
+<div class="pay-section">
+  <div class="pay-inner">
+    <div class="pay-text">
+      <h2>Pay via M-PESA Paybill</h2>
+      <p>Make your premium payment quickly and securely through M-PESA. Use the paybill number and your phone number as the account number.</p>
+      <div class="pay-ctas">
+        <a href="checkout.html" class="btn-white"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg>Proceed to Pay</a>
+        <a href="https://wa.me/254711446293" class="btn-outline">Talk to Agent</a>
+      </div>
+    </div>
+    <div class="pay-details">
+      <div class="pay-row"><span class="pay-key">M-PESA Paybill</span><span class="pay-val">247247</span></div>
+      <div class="pay-row"><span class="pay-key">Account Number</span><span class="pay-val">0711446293</span></div>
+      <div class="pay-row"><span class="pay-key">Private Car Annual</span><span class="pay-val">KShs. 2,500</span></div>
+      <div class="pay-row"><span class="pay-key">Commercial Annual</span><span class="pay-val">KShs. 7,500</span></div>
+      <div class="pay-row"><span class="pay-key">PSV Annual</span><span class="pay-val">KShs. 4,500</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PARTNERS -->
+<section class="section" style="background:var(--grey);padding:3rem 5%">
+  <div class="section-inner">
+    <div class="section-tag" style="margin-bottom:1.5rem;display:inline-block">In Partnership With</div>
+    <div class="partners-row">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/WhatsApp-britam.jpeg" alt="Britam" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/WhatsApp-APA.jpeg" alt="APA" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/WhatsApp-kenyaOrient.jpeg" alt="Kenya Orient" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/WhatsApp-icelion.jpeg" alt="Icelion" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/WhatsApp-tebrisa.jpeg" alt="Tebrisa" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/images10.jpeg" alt="Partner" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/image13.jpeg" alt="Partner" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/image14.jpeg" alt="Partner" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/images8.jpeg" alt="Partner" onerror="this.style.display='none'">
+      <img class="partner-logo" src="https://visioninsurance.co.ke/WhatsApp-kenya-alliance.jpeg" alt="Kenya Alliance" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Contact Us</div>
+      <h2>Get in Touch</h2>
+      <p class="section-sub">We're here to help you choose the right cover and process your payment.</p>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-detail"><div class="cd-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cd-label">Address</div><div class="cd-val">Mburu Gichua Roads, Ereto Plaza 3rd Floor, Nakuru City</div></div></div>
+        <div class="contact-detail"><div class="cd-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.17 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div><div><div class="cd-label">Phone</div><div class="cd-val">+254 711 446 293</div></div></div>
+        <div class="contact-detail"><div class="cd-icon"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cd-label">Email</div><div class="cd-val">kendagorvision@gmail.com</div></div></div>
+      </div>
+      <div class="cta-buttons">
+        <a href="https://wa.me/254711446293" class="cta-big cta-wa"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg><span>Chat on WhatsApp</span></a>
+        <a href="tel:+254711446293" class="cta-big cta-call"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.17 2 2 0 012.07 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg><span>Call Us Now</span></a>
+        <a href="sms:+254711446293" class="cta-big cta-sms"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg><span>Send a Text</span></a>
+        <a href="checkout.html" class="cta-big" style="background:var(--red);color:#fff"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/></svg><span>Pay via M-PESA</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo"><svg width="18" height="18" fill="#C8102E" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>Vision Insurance Services</div>
+      <div class="footer-reg">Regulated by the Insurance Regulatory Authority (IRA)</div>
+    </div>
+    <span>2023 © VisionInsurance.co.ke ™</span>
+  </div>
+</footer>
+
 </body>
-
 </html>
