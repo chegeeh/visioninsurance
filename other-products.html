@@ -102,7 +102,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-si
 <div class="topbar">
   <span>Regulated by the Insurance Regulatory Authority (IRA)</span>
   <div class="topbar-links">
-    <a href="mailto:kendagorvision@gmail.com">kendagorvision@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#6209070c0603050d10140b110b0d0c22050f030b0e4c010d0f"><span class="__cf_email__" data-cfemail="157e707b7174727a67637c667c7a7b557278747c793b767a78">[email&#160;protected]</span></a>
     <a href="tel:+254711446293">+254 711 446 293</a>
   </div>
 </div>
@@ -294,7 +294,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-si
   <div class="prod-block" id="student">
     <div class="prod-visual">
       <img
-        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=700&q=80"
+        src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=700&q=80"
         alt="Student Personal Accident Cover"
         onerror="this.src='https://placehold.co/700x525/fef0f2/C8102E?text=Student+Cover'"
       >
@@ -384,7 +384,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-si
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const PH = '254711446293';
 
 function sendQuote(product) {
@@ -440,12 +440,4 @@ function submitSMS(type) {
     msg = `Domestic Insurance Quote - Name: ${name}, Phone: ${phone}, Property: ${addr}`;
   } else if (type === 'student') {
     const name = document.getElementById('s-name').value.trim();
-    const phone = document.getElementById('s-phone').value.trim();
-    const uni = document.getElementById('s-uni').value.trim();
-    msg = `Student Accident Cover - Name: ${name}, Phone: ${phone}, University: ${uni}`;
-  }
-  window.open('sms:+' + PH + '?body=' + encodeURIComponent(msg));
-}
-</script>
-</body>
-</html>
+    const phone = document.getElementById('s-phone').value.trim(
