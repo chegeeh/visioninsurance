@@ -59,8 +59,7 @@ nav{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 
 .btn-red:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,16,46,.3)}
 .btn-wa{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;background:#25d366;color:#fff;border-radius:6px;font-weight:600;font-size:.88rem;transition:all .2s;border:none;cursor:pointer}
 .btn-wa:hover{background:#1eb558;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.25)}
-.btn-grey{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;background:var(--grey);color:var(--dark);border:1px solid var(--border);border-radius:6px;font-weight:600;font-size:.88rem;transition:all .2s}
-.btn-grey:hover{background:#e8e8e8;transform:translateY(-1px)}
+
 
 /* PRICE TAG */
 .price-tag{display:inline-flex;align-items:baseline;gap:.3rem;background:#fef0f2;border:1px solid #f0c0c8;border-radius:6px;padding:.5rem 1rem;margin-bottom:1.25rem}
@@ -69,8 +68,7 @@ nav{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 
 .price-per{font-size:.75rem;color:var(--muted)}
 
 /* FORM MODAL STYLE */
-.inline-form{background:var(--grey);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-top:1.5rem}
-.inline-form h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:1rem}
+
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
 .form-row.single{grid-template-columns:1fr}
 .field{display:flex;flex-direction:column;gap:.3rem}
@@ -102,7 +100,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-si
 <div class="topbar">
   <span>Regulated by the Insurance Regulatory Authority (IRA)</span>
   <div class="topbar-links">
-    <a href="/cdn-cgi/l/email-protection#6209070c0603050d10140b110b0d0c22050f030b0e4c010d0f"><span class="__cf_email__" data-cfemail="157e707b7174727a67637c667c7a7b557278747c793b767a78">[email&#160;protected]</span></a>
+    <a href="mailto:visioninsurance30@gmail.com">visioninsurance30@gmail.com</a>
     <a href="tel:+254711446293">+254 711 446 293</a>
   </div>
 </div>
@@ -187,29 +185,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-si
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg>
           Get Quote via WhatsApp
         </button>
-        <a href="sms:+254711446293?body=Hi%2C%20I%27d%20like%20a%20quote%20for%20Travel%20Insurance" class="btn-grey">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-          Send SMS
-        </a>
       </div>
-
-      <!-- Inline mini form -->
-      <div class="inline-form" id="travel-form" style="display:none">
-        <h4>Quick Travel Quote Request</h4>
-        <div class="form-row">
-          <div class="field"><label>Full Name</label><input type="text" id="t-name" placeholder="Your full name"></div>
-          <div class="field"><label>Phone *</label><input type="tel" id="t-phone" placeholder="+254 7XX XXX XXX"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>Destination</label><input type="text" id="t-dest" placeholder="e.g. UK, UAE, USA"></div>
-          <div class="field"><label>Travel Dates</label><input type="text" id="t-dates" placeholder="e.g. 10 Mar – 25 Mar 2025"></div>
-        </div>
-        <div class="form-submit-row">
-          <button class="btn-red" onclick="submitForm('travel')">Send via WhatsApp</button>
-          <button class="btn-grey" onclick="submitSMS('travel')">Send via SMS</button>
-        </div>
-      </div>
-      <button class="btn-grey" style="margin-top:.75rem;font-size:.8rem" onclick="toggleForm('travel-form')">▼ Fill Quick Quote Form</button>
     </div>
   </div>
 
@@ -263,28 +239,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-si
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg>
           Get Quote via WhatsApp
         </button>
-        <a href="sms:+254711446293?body=Hi%2C%20I%27d%20like%20a%20quote%20for%20Domestic%20Package%20Insurance" class="btn-grey">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-          Send SMS
-        </a>
       </div>
-
-      <div class="inline-form" id="domestic-form" style="display:none">
-        <h4>Quick Home Cover Quote</h4>
-        <div class="form-row">
-          <div class="field"><label>Full Name</label><input type="text" id="d-name" placeholder="Your full name"></div>
-          <div class="field"><label>Phone *</label><input type="tel" id="d-phone" placeholder="+254 7XX XXX XXX"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>Property Address</label><input type="text" id="d-addr" placeholder="e.g. Nakuru, Milimani Estate"></div>
-          <div class="field"><label>Estimated Contents Value</label><input type="text" id="d-val" placeholder="e.g. KShs. 500,000"></div>
-        </div>
-        <div class="form-submit-row">
-          <button class="btn-red" onclick="submitForm('domestic')">Send via WhatsApp</button>
-          <button class="btn-grey" onclick="submitSMS('domestic')">Send via SMS</button>
-        </div>
-      </div>
-      <button class="btn-grey" style="margin-top:.75rem;font-size:.8rem" onclick="toggleForm('domestic-form')">▼ Fill Quick Quote Form</button>
     </div>
   </div>
 
@@ -340,38 +295,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-si
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg>
           Get Quote via WhatsApp
         </button>
-        <a href="sms:+254711446293?body=Hi%2C%20I%27d%20like%20a%20Student%20Personal%20Accident%20Cover%20quote" class="btn-grey">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
-          Send SMS
-        </a>
       </div>
-
-      <div class="inline-form" id="student-form" style="display:none">
-        <h4>Student Accident Cover — Quick Quote</h4>
-        <div class="form-row">
-          <div class="field"><label>Full Name</label><input type="text" id="s-name" placeholder="Student's full name"></div>
-          <div class="field"><label>Phone *</label><input type="tel" id="s-phone" placeholder="+254 7XX XXX XXX"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>University / College</label><input type="text" id="s-uni" placeholder="e.g. Egerton University"></div>
-          <div class="field"><label>Attachment Company</label><input type="text" id="s-company" placeholder="e.g. KCB Bank, Nakuru"></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label>Sum Insured</label>
-            <select id="s-sum">
-              <option value="KShs. 100,000 (KShs. 600 premium)">KShs. 100,000 — KShs. 600</option>
-              <option value="KShs. 200,000 (KShs. 1,000 premium)">KShs. 200,000 — KShs. 1,000</option>
-              <option value="KShs. 300,000 (KShs. 1,500 premium)">KShs. 300,000 — KShs. 1,500</option>
-            </select>
-          </div>
-          <div class="field"><label>Cover Period</label><input type="text" id="s-period" placeholder="e.g. 1 Apr – 30 Jun 2025"></div>
-        </div>
-        <div class="form-submit-row">
-          <button class="btn-red" onclick="submitForm('student')">Send via WhatsApp</button>
-          <button class="btn-grey" onclick="submitSMS('student')">Send via SMS</button>
-        </div>
-      </div>
-      <button class="btn-grey" style="margin-top:.75rem;font-size:.8rem" onclick="toggleForm('student-form')">▼ Fill Quick Quote Form</button>
     </div>
   </div>
 
@@ -391,53 +315,6 @@ function sendQuote(product) {
   const msg = `Hi, I'd like a quote for *${product}* from Vision Insurance.\n\nPlease get in touch with me. Thank you.`;
   window.open('https://wa.me/' + PH + '?text=' + encodeURIComponent(msg), '_blank');
 }
-
-function toggleForm(id) {
-  const el = document.getElementById(id);
-  el.style.display = el.style.display === 'none' ? 'block' : 'none';
-}
-
-function submitForm(type) {
-  let msg = '';
-  if (type === 'travel') {
-    const name = document.getElementById('t-name').value.trim();
-    const phone = document.getElementById('t-phone').value.trim();
-    const dest = document.getElementById('t-dest').value.trim();
-    const dates = document.getElementById('t-dates').value.trim();
-    if (!phone) { alert('Please enter your phone number.'); return; }
-    msg = `*Travel Insurance Quote Request*\n\nName: ${name||'N/A'}\nPhone: ${phone}\nDestination: ${dest||'N/A'}\nTravel Dates: ${dates||'N/A'}`;
-  } else if (type === 'domestic') {
-    const name = document.getElementById('d-name').value.trim();
-    const phone = document.getElementById('d-phone').value.trim();
-    const addr = document.getElementById('d-addr').value.trim();
-    const val = document.getElementById('d-val').value.trim();
-    if (!phone) { alert('Please enter your phone number.'); return; }
-    msg = `*Domestic Package Insurance Quote Request*\n\nName: ${name||'N/A'}\nPhone: ${phone}\nProperty: ${addr||'N/A'}\nContents Value: ${val||'N/A'}`;
-  } else if (type === 'student') {
-    const name = document.getElementById('s-name').value.trim();
-    const phone = document.getElementById('s-phone').value.trim();
-    const uni = document.getElementById('s-uni').value.trim();
-    const company = document.getElementById('s-company').value.trim();
-    const sum = document.getElementById('s-sum').value;
-    const period = document.getElementById('s-period').value.trim();
-    if (!phone) { alert('Please enter your phone number.'); return; }
-    msg = `*Student Personal Accident Cover Quote*\n\nName: ${name||'N/A'}\nPhone: ${phone}\nUniversity: ${uni||'N/A'}\nAttachment: ${company||'N/A'}\nSum Insured: ${sum}\nPeriod: ${period||'N/A'}`;
-  }
-  window.open('https://wa.me/' + PH + '?text=' + encodeURIComponent(msg), '_blank');
-}
-
-function submitSMS(type) {
-  let msg = '';
-  if (type === 'travel') {
-    const name = document.getElementById('t-name').value.trim();
-    const phone = document.getElementById('t-phone').value.trim();
-    const dest = document.getElementById('t-dest').value.trim();
-    msg = `Travel Insurance Quote - Name: ${name}, Phone: ${phone}, Destination: ${dest}`;
-  } else if (type === 'domestic') {
-    const name = document.getElementById('d-name').value.trim();
-    const phone = document.getElementById('d-phone').value.trim();
-    const addr = document.getElementById('d-addr').value.trim();
-    msg = `Domestic Insurance Quote - Name: ${name}, Phone: ${phone}, Property: ${addr}`;
-  } else if (type === 'student') {
-    const name = document.getElementById('s-name').value.trim();
-    const phone = document.getElementById('s-phone').value.trim(
+</script>
+</body>
+</html>
