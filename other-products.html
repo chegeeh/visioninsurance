@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>More Insurance Products – Vision Insurance Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--red:#C8102E;--red2:#a50d25;--dark:#1a1a1a;--grey:#f5f5f5;--border:#e0e0e0;--text:#333;--muted:#666;--white:#fff}
+body{background:var(--white);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6}
+a{text-decoration:none;color:inherit}
+.topbar{background:var(--red);color:#fff;font-size:.78rem;padding:.45rem 5%;display:flex;justify-content:space-between;align-items:center}
+.topbar a{color:#fff;opacity:.9}.topbar-links{display:flex;gap:1.5rem}
+nav{background:var(--white);border-bottom:1px solid var(--border);padding:.9rem 5%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.logo{display:flex;align-items:center;gap:.6rem;font-size:1.15rem;font-weight:700;color:var(--dark)}
+.logo-icon{width:34px;height:34px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center}.logo-icon svg{fill:#fff}
+.nav-links{display:flex;gap:.5rem;align-items:center}
+.nav-links a{padding:.42rem .9rem;border-radius:5px;font-size:.83rem;font-weight:500;color:var(--dark);transition:all .2s}
+.nav-links a:hover{background:var(--grey)}
+.nav-btn{background:var(--red)!important;color:#fff!important;border-radius:5px!important}
+.nav-btn:hover{background:var(--red2)!important}
+.breadcrumb{background:var(--grey);border-bottom:1px solid var(--border);padding:.75rem 5%;font-size:.82rem;color:var(--muted)}
+.breadcrumb a{color:var(--red)}.breadcrumb span{margin:0 .4rem}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(135deg,#1a0a0d 0%,#2d0d16 50%,#180008 100%);position:relative;overflow:hidden;padding:4rem 5%}
+.page-hero-pattern{position:absolute;inset:0;opacity:.05;background-image:radial-gradient(circle,#fff 1px,transparent 1px);background-size:24px 24px}
+.page-hero-inner{position:relative;z-index:1;max-width:1100px;margin:0 auto}
+.hero-tag{display:inline-block;background:rgba(200,16,46,.3);border:1px solid rgba(200,16,46,.6);color:#ffb3be;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .8rem;border-radius:20px;margin-bottom:1rem}
+.page-hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;margin-bottom:.75rem;line-height:1.2}
+.page-hero h1 span{color:#ff6b80}
+.page-hero p{color:rgba(255,255,255,.7);font-size:.95rem;max-width:560px;line-height:1.7}
+
+/* PRODUCT SECTIONS */
+.page{max-width:1100px;margin:0 auto;padding:3rem 5% 5rem}
+
+/* PRODUCT BLOCK — alternating layout */
+.prod-block{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;padding:3.5rem 0;border-bottom:1px solid var(--border)}
+.prod-block:last-child{border-bottom:none}
+.prod-block.reverse{direction:rtl}.prod-block.reverse>*{direction:ltr}
+.prod-visual{position:relative}
+.prod-visual img{width:100%;border-radius:12px;display:block;aspect-ratio:4/3;object-fit:cover;box-shadow:0 12px 40px rgba(0,0,0,.12)}
+.prod-visual-badge{position:absolute;bottom:-1rem;left:1.5rem;background:var(--red);color:#fff;padding:.6rem 1.2rem;border-radius:6px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;box-shadow:0 4px 16px rgba(200,16,46,.35)}
+.prod-content{}
+.prod-cat{display:inline-block;background:#fef0f2;color:var(--red);font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.28rem .7rem;border-radius:4px;margin-bottom:.85rem}
+.prod-title{font-size:1.6rem;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:.75rem}
+.prod-desc{font-size:.9rem;color:var(--muted);line-height:1.75;margin-bottom:1.5rem}
+.prod-covers{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.75rem}
+.cover-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.83rem;color:var(--text);line-height:1.4}
+.cover-item::before{content:'✓';color:var(--red);font-weight:700;flex-shrink:0;margin-top:.05rem}
+.prod-reqs{background:var(--grey);border-radius:8px;padding:1.25rem;margin-bottom:1.5rem}
+.prod-reqs h4{font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--dark);margin-bottom:.75rem}
+.req-list{display:flex;flex-direction:column;gap:.4rem}
+.req-item{display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--muted)}
+.req-item::before{content:'›';color:var(--red);font-weight:700;flex-shrink:0}
+.prod-actions{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn-red{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;background:var(--red);color:#fff;border-radius:6px;font-weight:600;font-size:.88rem;transition:all .2s;border:none;cursor:pointer}
+.btn-red:hover{background:var(--red2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(200,16,46,.3)}
+.btn-wa{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;background:#25d366;color:#fff;border-radius:6px;font-weight:600;font-size:.88rem;transition:all .2s;border:none;cursor:pointer}
+.btn-wa:hover{background:#1eb558;transform:translateY(-1px);box-shadow:0 6px 20px rgba(37,211,102,.25)}
+.btn-grey{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.5rem;background:var(--grey);color:var(--dark);border:1px solid var(--border);border-radius:6px;font-weight:600;font-size:.88rem;transition:all .2s}
+.btn-grey:hover{background:#e8e8e8;transform:translateY(-1px)}
+
+/* PRICE TAG */
+.price-tag{display:inline-flex;align-items:baseline;gap:.3rem;background:#fef0f2;border:1px solid #f0c0c8;border-radius:6px;padding:.5rem 1rem;margin-bottom:1.25rem}
+.price-from{font-size:.75rem;color:var(--muted)}
+.price-num{font-size:1.4rem;font-weight:700;color:var(--red)}
+.price-per{font-size:.75rem;color:var(--muted)}
+
+/* FORM MODAL STYLE */
+.inline-form{background:var(--grey);border:1px solid var(--border);border-radius:10px;padding:1.5rem;margin-top:1.5rem}
+.inline-form h4{font-size:.9rem;font-weight:700;color:var(--dark);margin-bottom:1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:.75rem}
+.form-row.single{grid-template-columns:1fr}
+.field{display:flex;flex-direction:column;gap:.3rem}
+.field label{font-size:.72rem;font-weight:600;color:var(--muted);letter-spacing:.4px;text-transform:uppercase}
+.field input,.field select,.field textarea{padding:.7rem .9rem;border:1.5px solid var(--border);border-radius:6px;font-family:'Inter',sans-serif;font-size:.88rem;color:var(--dark);background:#fff;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.1)}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23666' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;cursor:pointer}
+.field textarea{resize:vertical;min-height:80px}
+.form-submit-row{display:flex;gap:.75rem;margin-top:1rem}
+
+footer{background:var(--dark);color:rgba(255,255,255,.6);padding:2rem 5%;font-size:.82rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo{color:#fff;font-weight:700}
+
+@media(max-width:860px){
+  .prod-block,.prod-block.reverse{grid-template-columns:1fr;direction:ltr}
+  .prod-covers{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr}
+  .topbar{display:none}
+  .nav-links a:not(.nav-btn){display:none}
+  .nav-links a{padding:.42rem .6rem}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>Regulated by the Insurance Regulatory Authority (IRA)</span>
+  <div class="topbar-links">
+    <a href="mailto:kendagorvision@gmail.com">kendagorvision@gmail.com</a>
+    <a href="tel:+254711446293">+254 711 446 293</a>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="logo">
+    <div class="logo-icon"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+    Vision Insurance
+  </a>
+  <div class="nav-links">
+    <a href="private.html">Private Car</a>
+    <a href="commercial.html">Commercial</a>
+    <a href="psv.html">PSV</a>
+    <a href="other-products.html" style="color:var(--red);font-weight:600">More Products</a>
+    <a href="checkout.html" class="nav-btn">Pay Now</a>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>›</span>More Insurance Products
+</div>
+
+<div class="page-hero">
+  <div class="page-hero-pattern"></div>
+  <div class="page-hero-inner">
+    <div class="hero-tag">Non-Motor Insurance</div>
+    <h1>Broader <span>Protection</span><br>for Life & Business</h1>
+    <p>Beyond motor cover, Vision Insurance offers a range of personal and business insurance solutions — from travelling abroad to protecting your students and securing government tenders.</p>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ==============================
+       1. TRAVEL INSURANCE
+  ============================== -->
+  <div class="prod-block" id="travel">
+    <div class="prod-visual">
+      <img
+        src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=700&q=80"
+        alt="Travel Insurance"
+        onerror="this.src='https://placehold.co/700x525/fef0f2/C8102E?text=Travel+Insurance'"
+      >
+      <div class="prod-visual-badge">Travel Cover</div>
+    </div>
+    <div class="prod-content">
+      <div class="prod-cat">Personal · Travel</div>
+      <h2 class="prod-title">Travel Insurance</h2>
+      <p class="prod-desc">Heading out of Kenya? Our Travel Insurance gives you peace of mind wherever you go — covering medical emergencies, trip cancellations, baggage loss, and personal accidents while travelling internationally. Whether it's a business trip or a holiday, you're covered from departure to return.</p>
+
+      <div class="price-tag">
+        <span class="price-from">Premium from</span>
+        <span class="price-num">KShs. 1,500</span>
+        <span class="price-per">/ trip</span>
+      </div>
+
+      <div class="prod-covers">
+        <div class="cover-item">Emergency medical expenses abroad</div>
+        <div class="cover-item">Trip cancellation & curtailment</div>
+        <div class="cover-item">Loss or delay of checked baggage</div>
+        <div class="cover-item">Personal accident cover during travel</div>
+        <div class="cover-item">Emergency evacuation & repatriation</div>
+        <div class="cover-item">Travel delay compensation</div>
+        <div class="cover-item">Loss of travel documents (passport/visa)</div>
+        <div class="cover-item">Personal liability cover abroad</div>
+      </div>
+
+      <div class="prod-reqs">
+        <h4>What You'll Need</h4>
+        <div class="req-list">
+          <div class="req-item">Copy of passport / travel document</div>
+          <div class="req-item">Travel itinerary or flight booking</div>
+          <div class="req-item">Departure and return dates</div>
+          <div class="req-item">Destination country/countries</div>
+          <div class="req-item">KRA PIN certificate</div>
+          <div class="req-item">Next of kin details</div>
+        </div>
+      </div>
+
+      <div class="prod-actions">
+        <button class="btn-red" onclick="sendQuote('Travel Insurance')">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg>
+          Get Quote via WhatsApp
+        </button>
+        <a href="sms:+254711446293?body=Hi%2C%20I%27d%20like%20a%20quote%20for%20Travel%20Insurance" class="btn-grey">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          Send SMS
+        </a>
+      </div>
+
+      <!-- Inline mini form -->
+      <div class="inline-form" id="travel-form" style="display:none">
+        <h4>Quick Travel Quote Request</h4>
+        <div class="form-row">
+          <div class="field"><label>Full Name</label><input type="text" id="t-name" placeholder="Your full name"></div>
+          <div class="field"><label>Phone *</label><input type="tel" id="t-phone" placeholder="+254 7XX XXX XXX"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Destination</label><input type="text" id="t-dest" placeholder="e.g. UK, UAE, USA"></div>
+          <div class="field"><label>Travel Dates</label><input type="text" id="t-dates" placeholder="e.g. 10 Mar – 25 Mar 2025"></div>
+        </div>
+        <div class="form-submit-row">
+          <button class="btn-red" onclick="submitForm('travel')">Send via WhatsApp</button>
+          <button class="btn-grey" onclick="submitSMS('travel')">Send via SMS</button>
+        </div>
+      </div>
+      <button class="btn-grey" style="margin-top:.75rem;font-size:.8rem" onclick="toggleForm('travel-form')">▼ Fill Quick Quote Form</button>
+    </div>
+  </div>
+
+  <!-- ==============================
+       2. DOMESTIC PACKAGE
+  ============================== -->
+  <div class="prod-block reverse" id="domestic">
+    <div class="prod-visual">
+      <img
+        src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80"
+        alt="Domestic Package Insurance"
+        onerror="this.src='https://placehold.co/700x525/fef0f2/C8102E?text=Domestic+Insurance'"
+      >
+      <div class="prod-visual-badge">Home Cover</div>
+    </div>
+    <div class="prod-content">
+      <div class="prod-cat">Personal · Home</div>
+      <h2 class="prod-title">Domestic Package Insurance</h2>
+      <p class="prod-desc">Your home and everything inside it deserves protection. Our Domestic Package Insurance covers your household contents, personal effects, and your home structure against fire, theft, accidental damage, and other domestic risks — giving your family comprehensive protection under one affordable policy.</p>
+
+      <div class="price-tag">
+        <span class="price-from">Premium from</span>
+        <span class="price-num">KShs. 3,000</span>
+        <span class="price-per">/ year</span>
+      </div>
+
+      <div class="prod-covers">
+        <div class="cover-item">Fire, lightning & explosion damage</div>
+        <div class="cover-item">Burglary & theft of household contents</div>
+        <div class="cover-item">Accidental breakage of glass & mirrors</div>
+        <div class="cover-item">Personal liability to domestic staff</div>
+        <div class="cover-item">Electrical appliance breakdown</div>
+        <div class="cover-item">All-risk cover for personal valuables</div>
+        <div class="cover-item">TV, electronics & white goods cover</div>
+        <div class="cover-item">Owner's liability to third parties</div>
+      </div>
+
+      <div class="prod-reqs">
+        <h4>What You'll Need</h4>
+        <div class="req-list">
+          <div class="req-item">Copy of national ID / passport</div>
+          <div class="req-item">Estimated value of household contents</div>
+          <div class="req-item">Property address and type (owned / rented)</div>
+          <div class="req-item">List of high-value items (electronics, jewellery)</div>
+          <div class="req-item">KRA PIN certificate</div>
+        </div>
+      </div>
+
+      <div class="prod-actions">
+        <button class="btn-red" onclick="sendQuote('Domestic Package Insurance')">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg>
+          Get Quote via WhatsApp
+        </button>
+        <a href="sms:+254711446293?body=Hi%2C%20I%27d%20like%20a%20quote%20for%20Domestic%20Package%20Insurance" class="btn-grey">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          Send SMS
+        </a>
+      </div>
+
+      <div class="inline-form" id="domestic-form" style="display:none">
+        <h4>Quick Home Cover Quote</h4>
+        <div class="form-row">
+          <div class="field"><label>Full Name</label><input type="text" id="d-name" placeholder="Your full name"></div>
+          <div class="field"><label>Phone *</label><input type="tel" id="d-phone" placeholder="+254 7XX XXX XXX"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Property Address</label><input type="text" id="d-addr" placeholder="e.g. Nakuru, Milimani Estate"></div>
+          <div class="field"><label>Estimated Contents Value</label><input type="text" id="d-val" placeholder="e.g. KShs. 500,000"></div>
+        </div>
+        <div class="form-submit-row">
+          <button class="btn-red" onclick="submitForm('domestic')">Send via WhatsApp</button>
+          <button class="btn-grey" onclick="submitSMS('domestic')">Send via SMS</button>
+        </div>
+      </div>
+      <button class="btn-grey" style="margin-top:.75rem;font-size:.8rem" onclick="toggleForm('domestic-form')">▼ Fill Quick Quote Form</button>
+    </div>
+  </div>
+
+  <!-- ==============================
+       3. STUDENT PERSONAL ACCIDENT
+  ============================== -->
+  <div class="prod-block" id="student">
+    <div class="prod-visual">
+      <img
+        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=700&q=80"
+        alt="Student Personal Accident Cover"
+        onerror="this.src='https://placehold.co/700x525/fef0f2/C8102E?text=Student+Cover'"
+      >
+      <div class="prod-visual-badge">Student Cover</div>
+    </div>
+    <div class="prod-content">
+      <div class="prod-cat">Personal · Education</div>
+      <h2 class="prod-title">Student Personal Accident Cover</h2>
+      <p class="prod-desc">Designed specifically for university and college students — especially during internship and industrial attachment periods. Our Student Personal Accident Cover protects you against death, permanent total disablement, and medical expenses arising from accidents at your place of attachment or institution during the specified cover period. A must-have for every student on attachment.</p>
+
+      <div class="price-tag">
+        <span class="price-from">Premium from</span>
+        <span class="price-num">KShs. 600</span>
+        <span class="price-per">/ period</span>
+      </div>
+
+      <div class="prod-covers">
+        <div class="cover-item">Accidental death benefit (up to KShs. 300,000)</div>
+        <div class="cover-item">Permanent total disablement cover</div>
+        <div class="cover-item">Medical expenses from accident injuries</div>
+        <div class="cover-item">Cover at place of work attachment</div>
+        <div class="cover-item">Cover within the learning institution</div>
+        <div class="cover-item">Flexible cover periods: 3 or 6 months</div>
+        <div class="cover-item">Sum insured options: KShs. 100K / 200K / 300K</div>
+        <div class="cover-item">Affordable premiums: KShs. 600, 1,000 or 1,500</div>
+      </div>
+
+      <div class="prod-reqs">
+        <h4>What You'll Need</h4>
+        <div class="req-list">
+          <div class="req-item">Student national ID or passport number</div>
+          <div class="req-item">Name and address of university / college</div>
+          <div class="req-item">Student admission number</div>
+          <div class="req-item">Course of study</div>
+          <div class="req-item">Name of company / institution for attachment</div>
+          <div class="req-item">Intended start and end date of attachment</div>
+          <div class="req-item">Next of kin name and relationship</div>
+        </div>
+      </div>
+
+      <div class="prod-actions">
+        <button class="btn-red" onclick="sendQuote('Student Personal Accident Cover')">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.057 1.475 5.776L.057 24l6.345-1.652A11.951 11.951 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.027-1.38l-.361-.214-3.737.979.995-3.633-.237-.376A9.818 9.818 0 1112 21.818z"/></svg>
+          Get Quote via WhatsApp
+        </button>
+        <a href="sms:+254711446293?body=Hi%2C%20I%27d%20like%20a%20Student%20Personal%20Accident%20Cover%20quote" class="btn-grey">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          Send SMS
+        </a>
+      </div>
+
+      <div class="inline-form" id="student-form" style="display:none">
+        <h4>Student Accident Cover — Quick Quote</h4>
+        <div class="form-row">
+          <div class="field"><label>Full Name</label><input type="text" id="s-name" placeholder="Student's full name"></div>
+          <div class="field"><label>Phone *</label><input type="tel" id="s-phone" placeholder="+254 7XX XXX XXX"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>University / College</label><input type="text" id="s-uni" placeholder="e.g. Egerton University"></div>
+          <div class="field"><label>Attachment Company</label><input type="text" id="s-company" placeholder="e.g. KCB Bank, Nakuru"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Sum Insured</label>
+            <select id="s-sum">
+              <option value="KShs. 100,000 (KShs. 600 premium)">KShs. 100,000 — KShs. 600</option>
+              <option value="KShs. 200,000 (KShs. 1,000 premium)">KShs. 200,000 — KShs. 1,000</option>
+              <option value="KShs. 300,000 (KShs. 1,500 premium)">KShs. 300,000 — KShs. 1,500</option>
+            </select>
+          </div>
+          <div class="field"><label>Cover Period</label><input type="text" id="s-period" placeholder="e.g. 1 Apr – 30 Jun 2025"></div>
+        </div>
+        <div class="form-submit-row">
+          <button class="btn-red" onclick="submitForm('student')">Send via WhatsApp</button>
+          <button class="btn-grey" onclick="submitSMS('student')">Send via SMS</button>
+        </div>
+      </div>
+      <button class="btn-grey" style="margin-top:.75rem;font-size:.8rem" onclick="toggleForm('student-form')">▼ Fill Quick Quote Form</button>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Vision Insurance Services</span>
+    <span>2023 © VisionInsurance.co.ke ™ · Regulated by IRA</span>
+  </div>
+</footer>
+
+<script>
+const PH = '254711446293';
+
+function sendQuote(product) {
+  const msg = `Hi, I'd like a quote for *${product}* from Vision Insurance.\n\nPlease get in touch with me. Thank you.`;
+  window.open('https://wa.me/' + PH + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function toggleForm(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function submitForm(type) {
+  let msg = '';
+  if (type === 'travel') {
+    const name = document.getElementById('t-name').value.trim();
+    const phone = document.getElementById('t-phone').value.trim();
+    const dest = document.getElementById('t-dest').value.trim();
+    const dates = document.getElementById('t-dates').value.trim();
+    if (!phone) { alert('Please enter your phone number.'); return; }
+    msg = `*Travel Insurance Quote Request*\n\nName: ${name||'N/A'}\nPhone: ${phone}\nDestination: ${dest||'N/A'}\nTravel Dates: ${dates||'N/A'}`;
+  } else if (type === 'domestic') {
+    const name = document.getElementById('d-name').value.trim();
+    const phone = document.getElementById('d-phone').value.trim();
+    const addr = document.getElementById('d-addr').value.trim();
+    const val = document.getElementById('d-val').value.trim();
+    if (!phone) { alert('Please enter your phone number.'); return; }
+    msg = `*Domestic Package Insurance Quote Request*\n\nName: ${name||'N/A'}\nPhone: ${phone}\nProperty: ${addr||'N/A'}\nContents Value: ${val||'N/A'}`;
+  } else if (type === 'student') {
+    const name = document.getElementById('s-name').value.trim();
+    const phone = document.getElementById('s-phone').value.trim();
+    const uni = document.getElementById('s-uni').value.trim();
+    const company = document.getElementById('s-company').value.trim();
+    const sum = document.getElementById('s-sum').value;
+    const period = document.getElementById('s-period').value.trim();
+    if (!phone) { alert('Please enter your phone number.'); return; }
+    msg = `*Student Personal Accident Cover Quote*\n\nName: ${name||'N/A'}\nPhone: ${phone}\nUniversity: ${uni||'N/A'}\nAttachment: ${company||'N/A'}\nSum Insured: ${sum}\nPeriod: ${period||'N/A'}`;
+  }
+  window.open('https://wa.me/' + PH + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function submitSMS(type) {
+  let msg = '';
+  if (type === 'travel') {
+    const name = document.getElementById('t-name').value.trim();
+    const phone = document.getElementById('t-phone').value.trim();
+    const dest = document.getElementById('t-dest').value.trim();
+    msg = `Travel Insurance Quote - Name: ${name}, Phone: ${phone}, Destination: ${dest}`;
+  } else if (type === 'domestic') {
+    const name = document.getElementById('d-name').value.trim();
+    const phone = document.getElementById('d-phone').value.trim();
+    const addr = document.getElementById('d-addr').value.trim();
+    msg = `Domestic Insurance Quote - Name: ${name}, Phone: ${phone}, Property: ${addr}`;
+  } else if (type === 'student') {
+    const name = document.getElementById('s-name').value.trim();
+    const phone = document.getElementById('s-phone').value.trim();
+    const uni = document.getElementById('s-uni').value.trim();
+    msg = `Student Accident Cover - Name: ${name}, Phone: ${phone}, University: ${uni}`;
+  }
+  window.open('sms:+' + PH + '?body=' + encodeURIComponent(msg));
+}
+</script>
+</body>
+</html>
